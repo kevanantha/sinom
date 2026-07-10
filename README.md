@@ -1,5 +1,8 @@
 # Sinom — Workspace Designer
 
+**Live demo:** [https://sinom-eight.vercel.app](https://sinom-eight.vercel.app)  
+**Repo:** [github.com/kevanantha/sinom](https://github.com/kevanantha/sinom)
+
 Interactive **Workspace Designer** for [monis.rent](https://www.monis.rent) — design a Bali office setup in 3D, see a live quote, then request a rental.
 
 > **Sinom** is *monis* spelled backwards. This is a concept tool for the Desent coding challenge, not the production monis storefront.
@@ -17,7 +20,7 @@ Interactive **Workspace Designer** for [monis.rent](https://www.monis.rent) — 
 
 - Next.js 16 · Tailwind CSS · shadcn/ui
 - React Three Fiber · Drei (`useGLTF`, `Environment`, `ContactShadows`, `Html`) · `@react-spring/three` selection scale · light N8AO
-- Zustand · Vercel (deploy target)
+- Zustand · Vercel
 
 ## 3D credits
 
@@ -32,15 +35,11 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## What I'd improve with more time
+## Submission
 
-- Tighter silhouette matching per monis SKU (second mesh only where Front camera notices)
-- Bundle detection (“Looks like The Essentials”) with discount messaging
-- Persist Workspace to URL / share link
-- Stronger Bali atmosphere (window view texture, time-of-day lighting)
-- Mobile-first catalog drawer polish
-
-## Submission notes
-
-- Add **desent-bot** as a GitHub collaborator (Read)
-- Deploy on **Vercel** and submit the live URL
+| Item | Status |
+|------|--------|
+| Live URL | [sinom-eight.vercel.app](https://sinom-eight.vercel.app) |
+| GitHub | [kevanantha/sinom](https://github.com/kevanantha/sinom) |
+| `desent-bot` collaborator | Invited (Read) |
+| Stack | Next.js · Tailwind · Vercel |
