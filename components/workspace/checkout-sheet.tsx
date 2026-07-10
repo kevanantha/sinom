@@ -8,14 +8,15 @@ import {
   useWorkspaceStore,
   weeklyQuoteUsd,
 } from "@/lib/workspace-store"
+import { useIsMobile } from "@/hooks/use-mobile"
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet"
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+} from "@/components/ui/drawer"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 
@@ -27,6 +28,7 @@ export function CheckoutSheet() {
   const rentalRequested = useWorkspaceStore((s) => s.rentalRequested)
   const selection = useWorkspaceStore((s) => s.selection)
   const durationWeeks = useWorkspaceStore((s) => s.durationWeeks)
+  const isMobile = useIsMobile()
 
   const ids = listSelectedItemIds(selection)
   const items = ids
@@ -36,23 +38,26 @@ export function CheckoutSheet() {
   const period = periodQuoteUsd(selection, durationWeeks)
 
   return (
-    <Sheet
+    <Drawer
+      key={isMobile ? "bottom" : "right"}
       open={open}
       onOpenChange={(next) => {
         if (!next) closeCheckout()
       }}
+      swipeDirection={isMobile ? "down" : "right"}
+      showSwipeHandle={isMobile}
     >
-      <SheetContent className="flex w-full flex-col gap-0 sm:max-w-md">
-        <SheetHeader>
-          <SheetTitle>
+      <DrawerContent className="data-[swipe-direction=down]:[--drawer-content-max-height:min(92dvh,40rem)] data-[swipe-direction=right]:h-full data-[swipe-direction=right]:rounded-none data-[swipe-direction=right]:border-y-0 data-[swipe-direction=right]:[--drawer-inset:0px] data-[swipe-direction=right]:sm:[--drawer-content-width:28rem]">
+        <DrawerHeader className="text-left">
+          <DrawerTitle>
             {rentalRequested ? "Rental requested" : "Your workspace"}
-          </SheetTitle>
-          <SheetDescription>
+          </DrawerTitle>
+          <DrawerDescription>
             {rentalRequested
               ? "This is a demo confirmation — no payment was taken. Open items on monis.rent to rent for real."
               : "Review your setup, then request a rental. Concept checkout for Sinom × monis."}
-          </SheetDescription>
-        </SheetHeader>
+          </DrawerDescription>
+        </DrawerHeader>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-4">
           {rentalRequested ? (
@@ -116,7 +121,7 @@ export function CheckoutSheet() {
 
         <Separator />
 
-        <SheetFooter className="gap-3">
+        <DrawerFooter className="gap-3">
           {!rentalRequested && (
             <div className="flex w-full items-end justify-between gap-3">
               <div className="flex flex-col">
@@ -138,8 +143,8 @@ export function CheckoutSheet() {
               Keep designing
             </Button>
           )}
-        </SheetFooter>
-      </SheetContent>
-    </Sheet>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   )
 }
