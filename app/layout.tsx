@@ -1,16 +1,23 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
+import { Geist_Mono, DM_Sans } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import type { Metadata } from "next"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+
+export const metadata: Metadata = {
+  title: "Sinom — Workspace Designer",
+  description:
+    "Design your Bali workspace visually and rent it — a concept tool for monis.rent.",
+}
 
 export default function RootLayout({
   children,
@@ -25,7 +32,7 @@ export default function RootLayout({
         "antialiased",
         fontMono.variable,
         "font-sans",
-        inter.variable
+        dmSans.variable
       )}
     >
       <body>
