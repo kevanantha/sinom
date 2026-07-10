@@ -15,5 +15,3 @@ Preview meshes are illustrative lookalikes, not official monis product models.
 | plant.glb | Houseplant — The Office Pack via Poly Pizza |
 
 HDRI: `lebombo_1k.hdr` from [pmndrs/drei-assets](https://github.com/pmndrs/drei-assets) (Poly Haven / CC0), vendored under `/public/hdri` because drei’s default githack CDN can 403.
-
-Unused legacy Poly Pizza files (`desk.glb`, `monitor.glb`, `monitor-wide.glb`) may remain in this folder but are not loaded by the Preview.

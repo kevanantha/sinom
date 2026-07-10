@@ -33,8 +33,8 @@ Workspace starts guided (default desk + chair) so the Room is never barren. Desk
 _Avoid_: Fully empty Workspace as the default; multi-monitor strips (2–3) as MVP; unlimited monitors; removing desk/chair without a replacement
 
 **Selection Bar**:
-Floating in-Preview action chrome for the selected Slot (IKEA-style), not a DOM tooltip. MVP: on the monitor Slot — Rotate (90° yaw steps), Replace (swap via Catalog), Remove (clear the Slot). Selection chrome uses a quiet accent ring under the selected item (silhouette edge outline is a later polish).
-_Avoid_: Autorotate/turntable spin; full IKEA bag/copy/goes-with set; using Tooltip as the primary selection chrome inside the canvas
+Floating in-Preview action chrome for the selected Slot (IKEA-style), not a DOM tooltip. MVP: on the monitor Slot — Rotate (90° yaw steps), Replace (cycle to the next monitor Catalog Item and open Accessories so the user can also pick directly), Remove (clear the Slot). Selection chrome uses a quiet accent ring under the selected item (silhouette edge outline is a later polish).
+_Avoid_: Autorotate/turntable spin; full IKEA bag/copy/goes-with set; using Tooltip as the primary selection chrome inside the canvas; Replace that only switches tabs with no visible change
 
 **Quote**:
 The running rental total for Catalog Items in the Workspace. Shown as a weekly rate and as a period total based on the selected Rental Duration.
@@ -49,8 +49,8 @@ The summary view of the selected Workspace (items + Quote) before the user confi
 _Avoid_: Order, purchase, payment processing, lead-capture form as the primary end state
 
 **Atmosphere**:
-Bali sense of place in the Room (window light, materials) and via rentable accessories like plant and lamp — not a separate lifestyle-zone UI. Preview lighting uses a warm indoor drei `Environment` (e.g. apartment) plus the window emissive — not a sterile studio void or a custom Bali HDRI for MVP.
-_Avoid_: Surfboard/motorcycle/garage zones; non-rentable props that confuse the Quote; cold studio-only lighting that kills place; blocking ship on a custom HDRI
+Bali sense of place in the Room (window light, materials) and via rentable accessories like plant and lamp — not a separate lifestyle-zone UI. Preview lighting uses a vendored warm indoor HDRI (`lebombo_1k`, Poly Haven / CC0) plus the window emissive — not a sterile studio void. Vendored under `/public/hdri` because drei’s default CDN can 403.
+_Avoid_: Surfboard/motorcycle/garage zones; non-rentable props that confuse the Quote; cold studio-only lighting that kills place; blocking ship on a custom Bali-only HDRI
 
 **Illustrative Preview**:
 The honest stance that Preview meshes are spatial stand-ins, not product photography. Surfaced as a tiny persistent caption near the Preview (e.g. “3D preview is illustrative”) — not a dismissible tip or README-only note.
@@ -71,5 +71,5 @@ _Avoid_: Mirroring the entire monis catalog; Lean minimum-only if aiming for hig
 ## Rendering (product decisions, not implementation)
 
 **Product R3F**:
-In-scope Preview capabilities (capability-driven — steal configurator patterns, not floor-planners): Canvas; `useGLTF` Catalog Items (desk/chair/monitor/lamp/plant priority; keyboard/mouse may stay primitive; Mesh Variant as above); warm indoor `Environment` (e.g. apartment) + `ContactShadows`; Camera View presets (Front default) with constrained orbit; in-scene `Html` mesh hotspots and Selection Bar; selection accent ring; monitor Slot 90° yaw (persisted on the Workspace); `useGLTF.preload` / loader; spring swap animations; light N8AO postprocessing; Illustrative Preview caption.
+In-scope Preview capabilities (capability-driven — steal configurator patterns, not floor-planners): Canvas; `useGLTF` Catalog Items (desk/chair/monitor/lamp/plant priority; keyboard/mouse may stay primitive; Mesh Variant as above); vendored warm indoor `Environment` HDRI + `ContactShadows`; Camera View presets (Front default) with constrained orbit; in-scene `Html` mesh hotspots and Selection Bar; selection accent ring; monitor Slot 90° yaw (persisted on the Workspace); `useGLTF.preload` / loader; selection scale spring; light N8AO postprocessing; Illustrative Preview caption.
 _Out of scope_: Physics, XR/AR, path tracing, free floor-drag / TransformControls-as-primary, 2D floor-plan dual mode, explode views, autorotate turntables, kitchen-sink “use every drei export”; custom Bali HDRI as MVP blocker; studio-only lighting as the primary look; multi-monitor (2–3) as MVP; IKEA-yellow mesh silhouette outline as MVP (ring chrome first)

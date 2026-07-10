@@ -8,7 +8,7 @@ Interactive **Workspace Designer** for [monis.rent](https://www.monis.rent) — 
 
 - **IKEA-style Front / Top / Side** camera presets over a small room corner (React Three Fiber)
 - **Fixed slots** (desk, chair, 0–1 monitor, lamp, plant) — swap items instead of free-drag furniture physics
-- **Selection Bar** on the monitor (Rotate 90° / Replace / Remove) plus a quiet selection outline
+- **Selection Bar** on the monitor (Rotate 90° / Replace cycles monitors / Remove) plus a quiet selection accent ring
 - **Catalog** mirrors monis names, weekly prices, and product photos; **3D meshes are illustrative lookalikes** (procedural + CC0 packs — monis ships 2D only)
 - **Zustand** owns the Workspace; the Canvas only renders it
 - Checkout is **intent confirmation** (demo success) plus deep links to monis.rent
@@ -16,7 +16,7 @@ Interactive **Workspace Designer** for [monis.rent](https://www.monis.rent) — 
 ## Tech
 
 - Next.js 16 · Tailwind CSS · shadcn/ui
-- React Three Fiber · Drei (`useGLTF`, `Environment`, `ContactShadows`, `Html`) · `@react-spring/three` swaps · light N8AO
+- React Three Fiber · Drei (`useGLTF`, `Environment`, `ContactShadows`, `Html`) · `@react-spring/three` selection scale · light N8AO
 - Zustand · Vercel (deploy target)
 
 ## 3D credits

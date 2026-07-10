@@ -13,6 +13,7 @@ import {
   chairModelUrl,
   deskModelUrl,
   monitorModelUrl,
+  PREVIEW_MODEL_URLS,
   PREVIEW_MODELS,
 } from "@/lib/preview-models"
 import { useWorkspaceStore } from "@/lib/workspace-store"
@@ -442,12 +443,6 @@ export function WorkspaceFurniture() {
   )
 }
 
-useGLTF.preload(PREVIEW_MODELS.deskElectric)
-useGLTF.preload(PREVIEW_MODELS.deskMechanical)
-useGLTF.preload(PREVIEW_MODELS.chairErgo)
-useGLTF.preload(PREVIEW_MODELS.chairLight)
-useGLTF.preload(PREVIEW_MODELS.monitor24)
-useGLTF.preload(PREVIEW_MODELS.monitor27)
-useGLTF.preload(PREVIEW_MODELS.monitor34)
-useGLTF.preload(PREVIEW_MODELS.lamp)
-useGLTF.preload(PREVIEW_MODELS.plant)
+for (const url of PREVIEW_MODEL_URLS) {
+  useGLTF.preload(url)
+}
